@@ -1,0 +1,38 @@
+public class array02
+{
+	public static void main (String [] args)
+	{
+		int [] dRandom = new int [10];
+		
+		System.out.println ("Mengisi dRandom dengan 10 bilangan Random");
+		
+		int rataRata;
+		int min;
+		int maks; 
+		
+		for (int i=0;i<dRandom.length;i++)
+		{
+			dRandom [i] = (int) (Math.random ()*10);
+		}
+		
+		System.out.println ("Menampilkan hasil bilangan random dalam array");
+		
+		min = dRandom [0];
+		maks = dRandom [0];
+		
+		for (int j=0;j<dRandom.length;j++)
+		{
+			if (min>dRandom [j])
+				min = dRandom [j];
+				
+			if (maks<dRandom [j])
+				maks = dRandom [j];
+			
+			System.out.println ("Data random ke ["+ j+"] = " +dRandom [j]);
+		}
+		
+		//System.out.println ("Rata-rata = " +rataRata);
+		System.out.println ("Nilai Minimal = " +min);
+		System.out.println ("Nilai Maksimal = " +maks);
+	}
+}
