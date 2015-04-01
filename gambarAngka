@@ -1,0 +1,29 @@
+public class gambarAngka
+{
+	public static void main (String [] args)
+	{
+		String [] label = {"GAMBAR", "ANGKA"};
+		int [] skor = {0,0};
+		
+		//lakukan 12x lempar koin
+		System.out.println ("Ke\t| Hasil Lemparan");
+		System.out.println ("========================");
+		
+		for (int i=0;i<12;i++)
+		{
+			int a = (int) (Math.random ()+0.5);
+			System.out.println ((i+1) + "\t| " +label [a]);
+			skor[a]++;
+		}
+		
+		System.out.println ("========================");
+		//hitung skor 0 - gambar skor 1 angka
+		//tampilkan tital skor gambar dan angka
+		for (int i=0;i<label.length;i++)
+		{
+			System.out.println ("Skor " +label[i] + " = " +skor[i]);
+		}
+		
+		//cetak kesimpulannya siapa yg menang
+	}
+}
