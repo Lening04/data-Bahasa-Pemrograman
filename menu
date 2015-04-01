@@ -9,9 +9,11 @@ class menu{
 		int subtotal=0;
 		int total=0;
 		System.out.println();
-		System.out.println("\"Daftar Menu Makanan dan Minuman\"");
+		System.out.println("------------------------------------------");
+		System.out.println("\" -- Daftar Menu Makanan dan Minuman --\"");
+		System.out.println("------------------------------------------");
 		System.out.println();
-		System.out.println("Makanan \t\t Harga");
+		System.out.println("Daftar Menu \t Daftar Harga");
 		System.out.println();
 		
 		for(int i=0; i<menu.length;i++){
@@ -20,10 +22,13 @@ class menu{
 		String jawab="y";
 		while(jawab.equalsIgnoreCase("y")){
 			System.out.println();
-				System.out.print("Masukkan pilihan : ");
+				System.out.print("Pilih Menu : ");
 				int pilih=k.nextInt();
 				System.out.println();
-				System.out.println(menu[pilih-1]+"\t"+harga[pilih-1]);
+				System.out.println("------------------------------------------");
+				System.out.println("Menu Pesanan\t\t\tHarga");
+				System.out.println("------------------------------------------");
+				System.out.println(menu[pilih-1]+"\t\t\t"+harga[pilih-1]);
 				System.out.println();
 				
 				System.out.print("Masukkan Jumlah Pesanan : ");
@@ -33,16 +38,16 @@ class menu{
 				System.out.println("Yang Harus di Bayar : "+subtotal);
 				System.out.println();
 				
-				nota+=menu[pilih-1]+"\t\t"+a+" Pesan\t\t"+harga[pilih-1]+"\t\t"+subtotal+"\n-----------------------------------------------------------------\n";
+				nota+=menu[pilih-1]+"\t\t"+a+" Pesan\t\t"+harga[pilih-1]+"\t\t"+subtotal+"\n\n";
 				total+=subtotal;
-				System.out.println("Pesan lagi?(Y/T)");
+				System.out.print("Pesan lagi?(Y/N) : ");
 				jawab=k.next();	
 				System.out.println();
 		}
 				System.out.println("");
-				System.out.println("\t\tNota Pesanan");
+				System.out.println("\t\tKwitansi Pesanan");
 				System.out.println("-----------------------------------------------------------------");
-				System.out.println("MENU \t\t\tJUMLAH \t\t HARGA \t\t SUBTOTAL");
+				System.out.println("MENU \t\t\tJUMLAH \t\t HARGA \t\t TOTAL");
 				System.out.println("-----------------------------------------------------------------");
 				System.out.println(nota);
 				System.out.println("");
