@@ -1,0 +1,46 @@
+public class urut
+{
+	public static void urut(String data[])
+	{
+		boolean terurut = false;
+		int index;
+		int i = 0;
+		while (terurut==false)
+		{
+			terurut = true;
+			for (index=1; index < data.length; index++)
+			{
+				if (data[index].compareTo(data[index-1])<0)
+				{
+					String temp = data[index];
+					data [index] = data[index-1];
+					data[index-1] = temp;
+					terurut = false;
+				}
+				i++;
+			}
+		}
+		System.out.println("jml iterasi = "+i);
+	}
+	
+	public static void main (String args [])
+	{
+		String strs[] = new String [5];
+		
+		strs[0]="ninin";
+		strs[1]="sabir";
+		strs[2]="getsa";
+		strs[3]="zahra";
+		strs[4]="acil";
+		
+		System.out.println("blm diurutkan : ");
+		for (String str:strs)
+			System.out.println(str);
+			urut(strs);
+			
+			System.out.println("setelah diurutkan : ");
+			for (String str:strs)
+			System.out.println(str);
+			
+	}
+}
