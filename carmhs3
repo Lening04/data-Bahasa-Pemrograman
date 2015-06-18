@@ -1,0 +1,210 @@
+import java.util.*;
+public class carmhs3
+{
+	public static int cr=-1;
+	static Scanner k = new Scanner(System.in);
+	
+	public static final String [][]label = {
+  {"08410100375","Purwanto",},
+    {"10410100146","Noer Hidayat"},
+    {"10410100162","Sandy Perdana"},
+    {"11410100142","Himawan Pradipta Utama"},
+    {"12410100049","Sujatmiko Hadinugroho"},
+    {"12410100070","Denny Kusuma"},
+    {"12410100088","Mochammad Afri Fitriansyah"},
+    {"12410100131","Pradita Satria Prima"},
+    {"12410100159","Fajriyan Nurli"},
+    {"12410100160","Hazvi Fahlevi"},
+    {"13410100006","Nico Stephanus Kuncoro"},
+    {"13410100007","Ramdhani Kurniawan"},
+    {"13410100048","Alanvianto Mukti Tamtomo"},
+    {"13410100049","Satryo Widodo"},
+    {"13410100058","Khamim Ahsanu Amala"},
+    {"13410100060","Arfiansyah Agma"},
+    {"13410100061","Candra Dwi Prasetya"},
+    {"13410100069","Mohammad Rangga Nurcahyo"},
+    {"13410100083","Raymond Andreas Soebijantoro"},
+    {"13410100153","Dwiki Rizwan Nizar"},
+    {"13410100155","Anggy Pranindya Sudarmadji"},
+    {"13410100157","Wahyu Alfiyanda"},
+    {"13410100180","Rayana Suryatama"},
+    {"13410100190","Bryan Asril Zani"},
+    {"13410100192","Eko Amiyantho"},
+    {"13410100200","Kristin Lebdaningrum"},
+    {"13410100206","RB. Nuriana Alim Putra"},
+    {"13410100216","Sabdo Wicaksono Putra"},
+    {"14410100170","Rizky Akbar"},
+    {"14410100172","Abdul Haris"},
+    {"14410100173","Ach Nofal Kurniawan"},
+    {"14410100174","Andri Anggara"},
+    {"14410100175","Auda Rizqi Aulany"},
+    {"14410100176","Noppy Wahyono Suwoto"},
+    {"14410100177","Arya Teja"},
+    {"14410100178","Nuari Imas Masita"},
+    {"14410100179","Afif Lutfian Fahmi Chudlori"},
+    {"14410100181","Novita Perdani"},
+    {"14410100182",  "Dheta Amelya Kurniawendy"}
+  };
+  private static String [][] data = new String[][];
+  
+  public static void viewAll()
+	{
+		cetak ("View all mahasiswa");
+		for (int i=0; i<label.length;i++)
+			System.out.print(label[i]+"\t");
+			cetak("");
+		for (int i=0; i<=cr;i++)
+		{
+			for (int j=0; j<data[i].length;j++)
+			{
+				System.out.print(data[i][j]+"\t");
+			}
+			System.out.println();
+		}
+	}
+	
+	public static String caribyname(String nama)
+	{
+		String _data="data tdk ada !";
+		int idx = -1;
+		int i=0;
+		do 
+		{
+			if (data[i][1].equals(nama))
+			idx=i;
+			i++;
+		}
+		while((i<=cr)&&(idx==-1));
+		if (idx!=-1)
+		_data=data[idx][0]+"\t"+data[idx][1]+"\t"+data[idx][2];
+		return _data;
+	}
+	
+	public static String caribynim(String nim)
+	{
+		String _data="data tdk ada !";
+		int idx = -1;
+		int i=0;
+		do 
+		{
+			if (data[i][0].equals(nim))
+			idx=i;
+			i++;
+		}
+		while((i<=cr)&&(idx==-1));
+		if (idx!=-1)
+		_data=data[idx][0]+"\t"+data[idx][1]+"\t"+data[idx][2];
+		return _data;
+	}
+	
+	public static void add (String nim, String nama)
+	{
+		cr++;
+		data[cr][0]=nim;
+		data[cr][1]=nama;
+	}
+	
+	public static void delete (String nim, String nama)
+	{
+		cr--;
+		data[cr][0]=nim;
+		data[cr][1]=nama;
+	}
+	
+	public static void cetakmenu()
+	{
+		cetak("--MENU CARI DATA---");
+		cetak("1. CARI DATA MAHASISWA BY NIM");
+		cetak("2. FILTER DATA MAHASISWA BY NAMA");
+		cetak("3. FILTER DATA MAHASISWA PER ANGKATAN");
+		cetak("4. DELETE DATA MAHASISWA BY NIM");
+		cetak("5. UPDATE DATA MAHASISWA");
+		cetak("6. ADD DATA MAHASISWA");
+		cetak("7. VIEW SEMUA DATA");
+		cetak("8. exit");
+		
+	}
+	
+	private static void cetak(String str)
+	{
+		System.out.println(str);
+	}
+	
+	public static void main (String []args)
+	{
+		boolean selesai=false;
+		
+		do 
+		{
+			cetakmenu();
+			int pil = bacaInt("enter pilihan 1-8 : ");
+			switch(pil)
+			{
+				case 1 : 
+				viewAll();
+				break;
+				case 2 : 
+				docaribyname();
+				break;
+				case 3:
+				docaribynim();
+				break;
+				case 4:
+				doadd ()
+				;break;
+				case 6:
+				selesai=true;
+				break;
+			}
+		}
+		while(!selesai);
+	}
+	
+	public static void doadd()
+	{
+		cetak ("add new data");
+		String nama = bacaStr ("masukan nama : ");
+		String nim = bacaStr ("masukan nim : ");
+		
+		add(nim,nama);
+	}
+	
+	public static void docaribyname()
+	{
+		if (cr!=-1)
+		{
+			cetak("Cari by nama");
+			String str = bacaStr("masukkan nama mhs yg dicari : ");
+			cetak (caribyname(str));
+		}
+		else
+			cetak ("data masih kosong");
+	}
+	
+	public static void docaribynim()
+	{
+		if (cr!=-1)
+		{
+			cetak("Cari by nim");
+			String str = bacaStr("masukkan nim yg dicari : ");
+			cetak (caribynim(str));
+		}
+		else
+			cetak ("data masih kosong");
+	}
+	
+	private static int bacaInt(String pesan)
+	{
+		System.out.print(pesan);
+		int i = k.nextInt();
+		return i;
+	}
+	
+	public static String bacaStr(String pesan)
+	{
+		System.out.print(pesan);
+		String i = k.next();
+		return i;
+	}
+	
+}
